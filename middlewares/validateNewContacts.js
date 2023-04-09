@@ -1,10 +1,10 @@
 const { HttpError } = require('../helpers');
 
-const validateContacts = schema => {
+const validateNewContacts = schema => {
     const func = (req, res, next)=> {
         const { error } = schema.validate(req.body);
         if (error) {
-            next(HttpError(400, error.message));
+            next(HttpError(400, 'missing required name field'));
         }
         next()
     }
@@ -12,4 +12,4 @@ const validateContacts = schema => {
     return func;
 }
 
-module.exports = validateContacts;
+module.exports = validateNewContacts;

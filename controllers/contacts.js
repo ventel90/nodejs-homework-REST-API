@@ -28,15 +28,15 @@ const deleteContact = async (req, res) => {
     throw HttpError(404, 'Not found');
   }
   res.json({
-    message: 'Contact deleted',
-    id: id,
+    message: 'Contact deleted'
   });
 };
 
 const updateContact = async (req, res) => {
   const { id } = req.params;
-  const result = await contacts.updateContact(id, req.body);
-  if (!result) {
+  const { name, email, phone } = req.body;
+  const result = await contacts.updateContact(id, { name, email, phone });
+    if (!result) {
     throw HttpError(404, 'Not found');
   }
   res.json(result);

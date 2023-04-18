@@ -1,6 +1,6 @@
-const HttpError = require('../helpers/HttpError');
+const { HttpError } = require('../helpers');
 
-const updateFavoriteStatus = schema => {
+const validatePatchBody = schema => {
   const func = (req, res, next) => {
     if (Object.keys(req.body).length === 0) {
       throw HttpError(400, 'missing field favorite');
@@ -14,4 +14,4 @@ const updateFavoriteStatus = schema => {
   return func;
 };
 
-module.exports = updateFavoriteStatus;
+module.exports = validatePatchBody;

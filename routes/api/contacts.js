@@ -9,7 +9,7 @@ const {
   isValidId,
   validateUpdateContacts,
   validateNewContacts,
-  updateFavoriteStatus,
+  validatePatchBody,
 } = require('../../middlewares');
 
 router.get('/', ctrl.getAllContacts);
@@ -27,9 +27,9 @@ router.put(
 );
 
 router.patch(
-  '/:contactId/favorite',
+  '/:id/favorite',
   isValidId,
-  updateFavoriteStatus(schemas.updateFavoriteSchema),
+  validatePatchBody(schemas.updateFavoriteSchema),
   ctrl.updateStatusContact
 );
 

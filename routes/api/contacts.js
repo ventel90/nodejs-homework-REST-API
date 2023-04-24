@@ -10,15 +10,21 @@ const {
   validateUpdateContacts,
   validateNewContacts,
   validatePatchBody,
+  userAuth,
 } = require('../../middlewares');
 
-router.get('/', ctrl.getAllContacts);
+router.get('/', userAuth, ctrl.getAllContacts);
 
-router.get('/:id', isValidId, ctrl.getContactById);
+router.get('/:id', userAuth, isValidId, ctrl.getContactById);
 
-router.post('/', validateNewContacts(schemas.addSchema), ctrl.addContact);
+router.post(
+  '/',
+  userAuth,
+  validateNewContacts(schemas.addSchema),
+  ctrl.addContact
+);
 
-router.delete('/:id', isValidId, ctrl.deleteContact);
+router.delete('/:id', userAuth, isValidId, ctrl.deleteContact);
 
 router.put(
   '/:id',

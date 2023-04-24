@@ -1,7 +1,7 @@
 const { HttpError } = require('../helpers');
 
 const validateUpdateContacts = schema => {
-  const func = (req, res, next) => {
+  const func = (req, _, next) => {
     if (Object.keys(req.body).length === 0) {
       throw HttpError(400, 'missing fields');
     }

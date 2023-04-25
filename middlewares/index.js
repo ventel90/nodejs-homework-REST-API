@@ -4,6 +4,7 @@ const validateNewContacts = require('./validateNewContacts');
 const validatePatchBody = require('./validatePatchBody');
 const validateUser = require('./validateUser');
 const userAuth = require('./userAuth');
+const upload = require('./upload');
 
 module.exports = {
   isValidId,
@@ -12,4 +13,5 @@ module.exports = {
   validatePatchBody,
   validateUser,
   userAuth,
+  upload,
 };

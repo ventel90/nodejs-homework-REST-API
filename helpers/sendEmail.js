@@ -14,8 +14,6 @@ const nodemailerConfig = {
   },
 };
 
-
-
 const transporter = nodemailer.createTransport(nodemailerConfig);
 
 const sendEmail = async data => {

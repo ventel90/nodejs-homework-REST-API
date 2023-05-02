@@ -17,7 +17,6 @@ const avatarsDir = path.join(__dirname, '../', 'public', 'avatars');
 const register = async (req, res) => {
   const { email, password } = req.body;
   const user = await User.findOne({ email });
-  console.log(user);
   if (user) {
     throw HttpError(409, 'Email in use');
   }
@@ -48,7 +47,6 @@ const register = async (req, res) => {
       subscription: newUser.subscription,
     },
   });
-  console.log(user)
 };
 
 const verify = async (req, res) => {
